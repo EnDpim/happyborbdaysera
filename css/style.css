@@ -1,0 +1,163 @@
+/* ---------- Basics ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f6f7fb;
+  color: #1c1d2e;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.page-header {
+  text-align: center;
+  padding: 3rem 1rem 1.5rem;
+}
+
+.page-header p {
+  color: #6b6e8a;
+}
+
+
+/* ---------- The grid of tiles ----------
+   Fits as many 220px+ columns as the screen allows:
+   4 across on a laptop, 2 on a tablet, 1 on a small phone. */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+
+/* ---------- One tile ----------
+   The trick: both images are stacked on top of each other
+   (position: absolute, same size). Only one is visible at a time. */
+.tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;      /* keeps the tile square */
+  border-radius: 18px;
+  overflow: hidden;         /* hides anything growing outside the tile */
+  background: #ddd;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* The whole tile lifts a little on hover */
+.tile:hover,
+.tile:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
+}
+
+/* Both images: stacked, filling the tile.
+   "transition" makes changes to opacity/transform smooth. */
+.tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* fills the tile without stretching */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* The hover image starts invisible, bigger and tilted */
+.tile .img-hover {
+  opacity: 0;
+  transform: scale(1.15) rotate(-4deg);
+}
+
+/* ON HOVER: hover image fades in and settles,
+   default image fades out. ":focus-visible" does the same
+   for keyboard users who tab onto the tile. */
+.tile:hover .img-hover,
+.tile:focus-visible .img-hover {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.tile:hover .img-default,
+.tile:focus-visible .img-default {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+
+/* ---------- The label that slides up ---------- */
+.label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.8rem 1rem;
+  color: #fff;
+  font-weight: 600;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+  transform: translateY(100%);   /* pushed below the tile = hidden */
+  transition: transform 0.4s ease;
+}
+
+.tile:hover .label,
+.tile:focus-visible .label {
+  transform: translateY(0);      /* slides into view */
+}
+
+
+/* ---------- The pages you open by clicking ---------- */
+.content-page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  animation: page-in 0.6s ease-out both;   /* fades in when opened */
+}
+
+.content-page h1 {
+  margin: 1.5rem 0 1rem;
+}
+
+.content-page img {
+  border-radius: 18px;
+  margin: 1.5rem 0;
+  max-width: 320px;
+}
+
+.back-link {
+  display: inline-block;
+  color: #5b3fe0;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.back-link:hover {
+  transform: translateX(-4px);
+}
+
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ---------- Respect "reduce motion" settings ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

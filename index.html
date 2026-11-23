@@ -1,116 +1,54 @@
 <!DOCTYPE html>
-<!--
-  index.html  -  the STRUCTURE of your page.
-  This must be named exactly "index.html" for GitHub Pages to find it.
-  Text written inside a comment like this one is ignored by the browser.
-  A comment starts with "less-than, exclamation mark, two dashes" and ends
-  with "two dashes, greater-than". Don't put one comment inside another.
--->
-
-<!--aaaaa -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- This line makes the page scale properly on phones. Don't delete it. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CHANGE ME: the text shown in the browser tab -->
-  <title>Happy Birthday Sera</title>
-
-  <!-- Links your CSS file. The path is relative to this file. -->
+  <title>My Gallery</title>
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- The little icon in the browser tab (a custom asset!) -->
-  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-
-  <!-- "defer" = load the script after the page is ready -->
-  <script src="js/main.js" defer></script>
 </head>
-
 <body>
 
-  <!-- ============ NAVIGATION BAR ============ -->
-  <header class="site-header">
-    <a class="logo" href="#home">MyProject</a>
-    <nav>
-      <!-- href="#about" jumps to the element with id="about" -->
-      <a href="#about">About</a>
-      <a href="#features">Features</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="page-header">
+    <h1>My Gallery</h1>
+    <p>Hover over a picture, then click it.</p>
   </header>
 
-  <main>
+  <main class="gallery">
 
-    <!-- ============ HERO (the big top section) ============ -->
-    <section id="home" class="hero">
-      <div class="hero-text">
-        <!-- Each of these has a class like "anim-1". The CSS gives them
-             a staggered fade-up animation when the page loads. -->
-        <p class="eyebrow anim-1">Welcome to</p>
-        <h1 class="anim-2">My Awesome <span class="highlight">Project</span></h1>
-        <p class="lead anim-3">
-          A short sentence that explains what your project is about.
-          Replace this with your own words.
-        </p>
-        <a class="button anim-4" href="#features">See more</a>
-      </div>
+    <!--
+      ONE TILE = one <a> link that contains TWO images.
+        - href          -> the page that opens when clicked
+        - img-default   -> the image you see normally
+        - img-hover     -> the image that fades in on hover
+        - label         -> the caption that slides up
+      To add a tile: copy a whole <a>...</a> block and change
+      the href, both image paths, the alt text and the label.
+    -->
+    <a class="tile" href="page-1.html">
+      <img class="img-default" src="images/tile1-normal.jpg" alt="Describe the normal image">
+      <img class="img-hover"   src="images/tile1-hover.jpg"  alt="Describe the hover image">
+      <span class="label">First tile</span>
+    </a>
 
-      <!-- An image from the assets folder. "alt" describes it for
-           screen readers and shows if the image fails to load. -->
-      <img class="hero-image" src="assets/images/hero.svg" alt="Abstract floating planet illustration">
-    </section>
+    <a class="tile" href="page-2.html">
+      <img class="img-default" src="images/tile2-normal.jpg" alt="Describe the normal image">
+      <img class="img-hover"   src="images/tile2-hover.jpg"  alt="Describe the hover image">
+      <span class="label">Second tile</span>
+    </a>
 
-    <!-- ============ ABOUT ============ -->
-    <!-- class="reveal" = invisible until you scroll to it (see main.js) -->
-    <section id="about" class="section reveal">
-      <h2>About</h2>
-      <p>
-        Write about your project here. Paragraphs go inside &lt;p&gt; tags.
-        You can add more sections by copying one of these whole
-        &lt;section&gt; blocks and changing the id and text.
-      </p>
-    </section>
+    <a class="tile" href="page-3.html">
+      <img class="img-default" src="images/tile3-normal.jpg" alt="Describe the normal image">
+      <img class="img-hover"   src="images/tile3-hover.jpg"  alt="Describe the hover image">
+      <span class="label">Third tile</span>
+    </a>
 
-    <!-- ============ FEATURES (cards) ============ -->
-    <section id="features" class="section">
-      <h2 class="reveal">Features</h2>
-
-      <div class="cards">
-        <!-- Copy one <article> to make more cards.
-             "delay-1/2/3" make them appear one after another. -->
-        <article class="card reveal delay-1">
-          <div class="card-icon">1</div>
-          <h3>First thing</h3>
-          <p>Describe the first part of your project. Hover over me!</p>
-        </article>
-
-        <article class="card reveal delay-2">
-          <div class="card-icon">2</div>
-          <h3>Second thing</h3>
-          <p>Describe the second part of your project.</p>
-        </article>
-
-        <article class="card reveal delay-3">
-          <div class="card-icon">3</div>
-          <h3>Third thing</h3>
-          <p>Describe the third part of your project.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section id="contact" class="section reveal">
-      <h2>Contact</h2>
-      <p>Your name &middot; your class &middot; your school</p>
-    </section>
+    <a class="tile" href="page-4.html">
+      <img class="img-default" src="images/tile4-normal.jpg" alt="Describe the normal image">
+      <img class="img-hover"   src="images/tile4-hover.jpg"  alt="Describe the hover image">
+      <span class="label">Fourth tile</span>
+    </a>
 
   </main>
-
-  <footer class="site-footer">
-    <!-- main.js fills in the year automatically -->
-    <p>&copy; <span id="year">2026</span> Your Name</p>
-  </footer>
 
 </body>
 </html>
