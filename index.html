@@ -5,11 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Gallery</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
 
-  <main class="gallery">
+  <main class="map">
 
+    <!-- An empty layer. main.js fills it with the dotted trail. -->
+    <div class="trail"></div>
+
+    <!-- The milestones, from top to bottom. The trail passes through
+         each one in this order. Copy a block to add another. -->
     <a class="tile" href="page-1.html">
       <img class="img-default" src="assets/images/tile1-normal.png" alt="">
       <img class="img-hover"   src="assets/images/tile1-hover.png"  alt="">

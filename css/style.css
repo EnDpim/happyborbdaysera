@@ -23,25 +23,66 @@ img {
 }
 
 
-/* ---------- The grid ---------- */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 1.5rem;
+/* ---------- Size of the milestone images ----------
+   Change this ONE value to make every image bigger or smaller.
+   clamp(smallest, preferred, largest): it scales with the screen
+   width but never goes below 180px or above 300px. */
+:root {
+  --tile-size: clamp(180px, 32vw, 300px);
 }
 
 
-/* ---------- One tile ----------
-   Now just an invisible container that holds the two stacked images.
-   No background, border, shadow or clipping, so only the images show. */
+/* ---------- The map ----------
+   A tall column that holds the trail and the milestones.
+   "gap" is the vertical space between milestones: raise it for a
+   longer trail, lower it for a shorter one. */
+.map {
+  position: relative;       /* the trail is positioned inside this */
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+
+/* ---------- The trail layer ----------
+   Sits behind the milestones and never blocks clicks.
+   main.js puts the little trail pieces inside it. */
+.trail {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.trail-piece {
+  position: absolute;
+  /* If your trail image is too big or small, set a size here, e.g.
+     width: 20px; */
+}
+
+
+/* ---------- One milestone ---------- */
 .tile {
   position: relative;
+  z-index: 1;               /* above the trail */
   display: block;
+  width: var(--tile-size);
   aspect-ratio: 1 / 1;
+  flex-shrink: 0;
 }
+
+/* ---------- The zig-zag ----------
+   Each milestone is pushed left or right. The pattern repeats every
+   4 images, with different amounts so it looks hand-placed, not rigid.
+   Edit the percentages to move things around.
+   (We use "nth-of-type" because the trail <div> is also in the map.) */
+.tile:nth-of-type(4n + 1) { align-self: flex-start; margin-left: 6%; }
+.tile:nth-of-type(4n + 2) { align-self: flex-end;   margin-right: 10%; }
+.tile:nth-of-type(4n + 3) { align-self: flex-start; margin-left: 24%; }
+.tile:nth-of-type(4n + 4) { align-self: flex-end;   margin-right: 2%; }
 
 /* Keyboard users get a simple outline when they tab onto a tile */
 .tile:focus-visible {
@@ -49,8 +90,8 @@ img {
   outline-offset: 4px;
 }
 
-/* Both images are stacked on top of each other.
-   No transition, so changes happen instantly. */
+
+/* ---------- The two stacked images (instant swap) ---------- */
 .tile img {
   position: absolute;
   inset: 0;
@@ -59,12 +100,10 @@ img {
   object-fit: contain;
 }
 
-/* The hover image starts hidden */
 .tile .img-hover {
   opacity: 0;
 }
 
-/* ON HOVER: hide the normal image, show the hover image */
 .tile:hover .img-hover,
 .tile:focus-visible .img-hover {
   opacity: 1;
@@ -74,6 +113,7 @@ img {
 .tile:focus-visible .img-default {
   opacity: 0;
 }
+
 
 /* ---------- The pages you open by clicking ---------- */
 .content-page {
