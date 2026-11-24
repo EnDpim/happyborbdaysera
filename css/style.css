@@ -22,19 +22,8 @@ img {
   display: block;
 }
 
-.page-header {
-  text-align: center;
-  padding: 3rem 1rem 1.5rem;
-}
 
-.page-header p {
-  color: #6b6e8a;
-}
-
-
-/* ---------- The grid of tiles ----------
-   Fits as many 220px+ columns as the screen allows:
-   4 across on a laptop, 2 on a tablet, 1 on a small phone. */
+/* ---------- The grid ---------- */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -46,34 +35,28 @@ img {
 
 
 /* ---------- One tile ----------
-   The trick: both images are stacked on top of each other
-   (position: absolute, same size). Only one is visible at a time. */
+   Now just an invisible container that holds the two stacked images.
+   No background, border, shadow or clipping, so only the images show. */
 .tile {
   position: relative;
   display: block;
-  aspect-ratio: 1 / 1;      /* keeps the tile square */
-  border-radius: 18px;
-  overflow: hidden;         /* hides anything growing outside the tile */
-  background: #ddd;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s, box-shadow 0.3s;
+  aspect-ratio: 1 / 1;
 }
 
-/* The whole tile lifts a little on hover */
-.tile:hover,
+/* Keyboard users get a simple outline when they tab onto a tile */
 .tile:focus-visible {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
+  outline: 2px solid #5b3fe0;
+  outline-offset: 4px;
 }
 
-/* Both images: stacked, filling the tile.
-   "transition" makes changes to opacity/transform smooth. */
+/* Both images are stacked on top of each other.
+   "contain" fits the whole PNG inside without cropping it. */
 .tile img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;        /* fills the tile without stretching */
+  object-fit: contain;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -83,9 +66,8 @@ img {
   transform: scale(1.15) rotate(-4deg);
 }
 
-/* ON HOVER: hover image fades in and settles,
-   default image fades out. ":focus-visible" does the same
-   for keyboard users who tab onto the tile. */
+/* ON HOVER: the hover image fades in and settles,
+   and the normal image fades out */
 .tile:hover .img-hover,
 .tile:focus-visible .img-hover {
   opacity: 1;
@@ -99,32 +81,12 @@ img {
 }
 
 
-/* ---------- The label that slides up ---------- */
-.label {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.8rem 1rem;
-  color: #fff;
-  font-weight: 600;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
-  transform: translateY(100%);   /* pushed below the tile = hidden */
-  transition: transform 0.4s ease;
-}
-
-.tile:hover .label,
-.tile:focus-visible .label {
-  transform: translateY(0);      /* slides into view */
-}
-
-
 /* ---------- The pages you open by clicking ---------- */
 .content-page {
   max-width: 700px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
-  animation: page-in 0.6s ease-out both;   /* fades in when opened */
+  animation: page-in 0.6s ease-out both;
 }
 
 .content-page h1 {
@@ -132,7 +94,6 @@ img {
 }
 
 .content-page img {
-  border-radius: 18px;
   margin: 1.5rem 0;
   max-width: 320px;
 }
