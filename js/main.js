@@ -13,7 +13,7 @@
 
 // ---------- SETTINGS (safe to change) ----------
 const TRAIL_IMAGE = 'assets/images/trail.png';  // your small trail image
-const SPACING     = 100;   // pixels between pieces. Bigger = more gap
+const SPACING     = 60;   // pixels between pieces. Bigger = more gap
                           // between them. Set it to your image's width
                           // for a solid, unbroken line.
 const SKIP_RADIUS = 0;    // 0 = trail runs underneath the milestones.
