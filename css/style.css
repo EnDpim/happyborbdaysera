@@ -50,36 +50,30 @@ img {
 }
 
 /* Both images are stacked on top of each other.
-   "contain" fits the whole PNG inside without cropping it. */
+   No transition, so changes happen instantly. */
 .tile img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* The hover image starts invisible, bigger and tilted */
+/* The hover image starts hidden */
 .tile .img-hover {
   opacity: 0;
-  transform: scale(1.15) rotate(-4deg);
 }
 
-/* ON HOVER: the hover image fades in and settles,
-   and the normal image fades out */
+/* ON HOVER: hide the normal image, show the hover image */
 .tile:hover .img-hover,
 .tile:focus-visible .img-hover {
   opacity: 1;
-  transform: scale(1) rotate(0deg);
 }
 
 .tile:hover .img-default,
 .tile:focus-visible .img-default {
   opacity: 0;
-  transform: scale(0.9);
 }
-
 
 /* ---------- The pages you open by clicking ---------- */
 .content-page {
