@@ -68,7 +68,7 @@ img {
     /* the trail is positioned inside this */
     max-width: 900px;
     margin: 0 auto;
-    padding: 4rem 1.5rem;
+    padding: 8rem 1.5rem 4rem;
     display: flex;
     flex-direction: column;
     gap: 5rem;
