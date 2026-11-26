@@ -221,6 +221,30 @@ img {
     }
 }
 
+/* ---------- Scattered dots behind everything ---------- */
+body {
+    position: relative;
+    /* the dots layer is sized to the whole page */
+    min-height: 100vh;
+}
+
+.dots {
+    position: absolute;
+    inset: 0;
+    /* covers the entire page, top to bottom */
+    z-index: -1;
+    /* behind all content */
+    overflow: hidden;
+    /* dots near the edge can't cause side-scrolling */
+    pointer-events: none;
+    /* never blocks clicks */
+}
+
+.dot {
+    position: absolute;
+    opacity: 0.55;
+    /* lower = fainter, 1 = full strength */
+}
 
 /* ---------- Respect "reduce motion" settings ---------- */
 @media (prefers-reduced-motion: reduce) {
