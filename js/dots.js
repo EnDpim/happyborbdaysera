@@ -16,8 +16,8 @@ const DOT_IMAGES = [                 // your dot images: add or remove lines
 ];
 const CELL     = 110;   // px between dots. Smaller = more dots
 const JITTER   = 0.35;  // 0 = perfect grid, 0.5 = very scattered
-const MIN_SIZE = 18;    // smallest dot width in px
-const MAX_SIZE = 34;    // biggest dot width in px
+const MIN_SIZE = 100;    // smallest dot width in px
+const MAX_SIZE = 100;    // biggest dot width in px
 const ROTATE   = true;  // true = each dot is turned a random amount
 const SEED     = 7;     // change this number to get a different layout
 
