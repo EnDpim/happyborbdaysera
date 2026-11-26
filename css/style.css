@@ -122,11 +122,6 @@ img {
     margin-left: 24%;
 }
 
-.tile:nth-of-type(4n + 4) {
-    align-self: flex-end;
-    margin-right: 2%;
-}
-
 /* Keyboard users get a simple outline when they tab onto a tile */
 .tile:focus-visible {
     outline: 2px solid #5b3fe0;
