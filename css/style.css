@@ -1,8 +1,8 @@
 /* ---------- Basics ---------- */
 @font-face {
-  font-family: "MyFont";
-  src: url("../assets/fonts/ShortStack-Regular.ttf") format("truetype");
-  font-display: swap;
+    font-family: "MyFont";
+    src: url("../assets/fonts/ShortStack-Regular.ttf") format("truetype");
+    font-display: swap;
 }
 
 * {
@@ -180,6 +180,33 @@ img {
 
 .back-link:hover {
     transform: translateX(-4px);
+}
+
+/* ---------- Text beside each envelope ---------- */
+.note {
+    position: absolute;
+    top: 50%;
+    /* vertically centered on the envelope */
+    transform: translateY(-50%);
+    width: 200px;
+    /* how wide the text block can be */
+    font-size: 1rem;
+    line-height: 1.35;
+    color: #3a3b55;
+}
+
+/* Left-hand envelopes (1st, 3rd, 5th...): text goes on the RIGHT */
+.tile:nth-of-type(odd) .note {
+    left: 100%;
+    margin-left: 1.5rem;
+    text-align: left;
+}
+
+/* Right-hand envelopes (2nd, 4th, 6th...): text goes on the LEFT */
+.tile:nth-of-type(even) .note {
+    right: 100%;
+    margin-right: 1.5rem;
+    text-align: right;
 }
 
 @keyframes page-in {
