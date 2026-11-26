@@ -1,8 +1,8 @@
 /* ---------- Basics ---------- */
 @font-face {
-  font-family: "MyFont";
-  src: url("../assets/fonts/bitcount.ttf") format("truetype");
-  font-display: swap;
+    font-family: "MyFont";
+    src: url("../assets/fonts/bitcount.ttf") format("truetype");
+    font-display: swap;
 }
 
 * {
@@ -14,7 +14,7 @@
 body {
     font-family: "MyFont", system-ui, sans-serif;
     background: #f6f7fb;
-    color: #1c1d2e;
+    /* color: #1c1d2e; */
     line-height: 1.6;
 }
 
@@ -46,14 +46,14 @@ img {
 }
 
 .intro h1 {
-    color: #5D3232;
+    /*color: #5D3232;*/
     font-family: "MyFont", system-ui, sans-serif;
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
 .intro p {
-    color: #5D3232;
+    /*color: #5D3232;*/
     max-width: 60ch;
     /* keeps lines a comfortable length */
     margin: 0 auto;
