@@ -28,7 +28,7 @@ img {
    clamp(smallest, preferred, largest): it scales with the screen
    width but never goes below 180px or above 300px. */
 :root {
-  --tile-size: 1000px
+  --tile-size: 350px
 }
 
 
