@@ -20,8 +20,8 @@ const CELL     = 150;   // px between dots. Smaller = more dots, but it can't
 const GAP      = 12;    // minimum empty space between any two dots, in px
 const JITTER   = 0.35;  // 0 = perfect grid, 0.5 = very scattered
                         // (it's limited automatically so dots never touch)
-const MIN_SIZE = 30;    // smallest dot width in px
-const MAX_SIZE = 55;    // biggest dot width in px
+const MIN_SIZE = 75;    // smallest dot width in px
+const MAX_SIZE = 75;    // biggest dot width in px
 const ROTATE   = true;  // true = each dot is turned a random amount
 const SEED     = 7;     // change this number to get a different layout
 
