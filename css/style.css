@@ -34,7 +34,7 @@ img {
    clamp(smallest, preferred, largest): it scales with the screen
    width but never goes below 180px or above 300px. */
 :root {
-    --tile-size: 900px
+    --tile-size: 400px
 }
 
 /* ---------- Title and intro text at the top ---------- */
