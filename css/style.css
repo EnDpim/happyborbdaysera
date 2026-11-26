@@ -34,7 +34,7 @@ img {
    clamp(smallest, preferred, largest): it scales with the screen
    width but never goes below 180px or above 300px. */
 :root {
-    --tile-size: clamp(180px, 32vw, 300px);
+    --tile-size: 900px
 }
 
 /* ---------- Title and intro text at the top ---------- */
@@ -66,9 +66,9 @@ img {
 .map {
     position: relative;
     /* the trail is positioned inside this */
-    max-width: 900px;
+    max-width: 900;
     margin: 0 auto;
-    padding: 8rem 1.5rem 4rem;
+    padding: 4rem 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 5rem;
