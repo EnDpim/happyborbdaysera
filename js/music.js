@@ -4,6 +4,7 @@
 const music  = document.getElementById('bgm');
 const toggle = document.getElementById('music-toggle');
 const icon   = document.getElementById('music-icon');
+const LOOP_EARLY = 0.25;
 
 const PLAY_IMAGE  = 'assets/images/play.png';   // shown while paused
 const PAUSE_IMAGE = 'assets/images/pause.png';  // shown while playing
@@ -58,3 +59,10 @@ music.play().catch(() => {
   FIRST_ACTIONS.forEach((action) =>
     document.addEventListener(action, startOnFirstAction));
 });
+
+setInterval(() => {
+  if (!music.paused && music.duration &&
+      music.currentTime >= music.duration - LOOP_EARLY) {
+    music.currentTime = 0;
+  }
+}, 50);
