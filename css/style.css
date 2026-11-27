@@ -258,14 +258,21 @@ body {
     bottom: 1.5rem;
     z-index: 10;
     /* above the envelopes */
-    padding: 0.6rem 1.1rem;
+    width: 64px;
+    /* how big it appears on the page */
+    height: 64px;
+    padding: 0;
     border: none;
-    border-radius: 999px;
-    background: #5b3fe0;
-    color: #fff;
-    font: inherit;
-    font-weight: 600;
+    background: none;
+    /* your picture is the whole button */
     cursor: pointer;
+}
+
+.music-toggle img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 /* ---------- Respect "reduce motion" settings ---------- */
