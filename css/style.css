@@ -242,7 +242,7 @@ body {
 
 .dot {
     position: absolute;
-    opacity: 0.55;
+    opacity: 0.3;
     /* lower = fainter, 1 = full strength */
 }
 
