@@ -4,7 +4,7 @@
 const music  = document.getElementById('bgm');
 const toggle = document.getElementById('music-toggle');
 const icon   = document.getElementById('music-icon');
-const LOOP_EARLY = 5;
+const LOOP_EARLY = 7;
 
 const PLAY_IMAGE  = 'assets/images/play.png';   // shown while paused
 const PAUSE_IMAGE = 'assets/images/pause.png';  // shown while playing
