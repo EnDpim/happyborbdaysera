@@ -19,7 +19,7 @@ body {
 }
 
 p {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
 }
 
 a {
@@ -194,7 +194,7 @@ img {
     transform: translateY(-50%);
     width: 200px;
     /* how wide the text block can be */
-    font-size: 1rem;
+    font-size: 1.35rem;
     line-height: 1.35;
     color: #3a3b55;
 }
