@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Gallery</title>
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        /* If the visitor already opened the envelope in this tab, skip the entry screen */
+        try {if (sessionStorage.getItem("entered")) document.documentElement.classList.add("skip-entry");} catch (e) { }
+    </script>
     <script src="js/main.js" defer></script>
     <script src="js/dots.js" defer></script>
     <script src="js/music.js" defer></script>
+    <script src="js/entry.js" defer></script>
 </head>
 
 <body>
@@ -45,6 +50,14 @@
         </a>
 
     </main>
+
+    <div class="entry" id="entry">
+        <button class="entry-envelope" id="entry-button" type="button" aria-label="Open the envelope">
+            <img class="entry-closed" src="assets/images/entry-closed.png" alt="">
+            <img class="entry-open" src="assets/images/entry-open.png" alt="">
+        </button>
+        <p class="entry-hint">Click the envelope to open it</p>
+    </div>
 
     <audio id="bgm" src="assets/audio/song.mp3" loop preload="auto"></audio>
     <button id="music-toggle" class="music-toggle" type="button" aria-label="Play music">
