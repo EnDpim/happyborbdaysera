@@ -345,8 +345,14 @@ html.entry-active body {
 }
 
 .entry-hint {
-    color: #fde8ef;
+    margin-top: -2rem;
+    /* pulls the text up into the empty space */
+    color: #3a3b55;
     font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    /* clicks pass through to the envelope */
 }
 
 /* ---------- Respect "reduce motion" settings ---------- */
